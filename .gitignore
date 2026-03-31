@@ -1,0 +1,19 @@
+#ignore files without extensions
+# Ignore all
+*
+# Unignore all with extensions
+!*.*
+# Unignore all dirs
+!*/
+
+# Compiled python modules.
+*.pyc
+
+# Pycharms .idea can be ignored
+/.idea
+
+#ipnyb checkpoints
+/code/.ipynb*
+.DS_Store
+
+/huxt.egg-info
