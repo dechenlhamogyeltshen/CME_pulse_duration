@@ -31,7 +31,7 @@ from sunpy.net import attrs
 from sunpy.timeseries import TimeSeries
 import tqdm
 
-from huxt import huxt as h
+import huxt as h
 
 # Units needed
 day = u.day

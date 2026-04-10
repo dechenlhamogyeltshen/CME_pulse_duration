@@ -17,8 +17,8 @@ from scipy.optimize import minimize
 import sunpy
 from sunpy.coordinates import get_horizons_coord
 
-from huxt import huxt as h
-from huxt import huxt_inputs as hin
+import huxt as h
+import huxt_inputs as hin
 
 mpl.rc("axes", labelsize=16)
 mpl.rc("ytick", labelsize=16)

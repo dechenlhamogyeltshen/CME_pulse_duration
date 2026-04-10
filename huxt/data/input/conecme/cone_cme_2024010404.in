@@ -1,0 +1,30 @@
+project=/critical/para/opcomp/enlil/enlil_build/ENLIL-2.7e-meto/projdir1/ ambcode=wsadu2bc casecode=cone2bc
+&namjob
+  lproj='/critical/para/opcomp/enlil/enlil_build/ENLIL-2.7e-meto/projdir1/',
+  lcase='512x60x180x1.a3b2-sa1.gong',
+  ldcase='.',
+/
+LLVV=-25./-3./879./0. RRtilt=30./0./0. NTxcld=4./1./1. NTrcav=1./4./0.
+&nambnd
+  lbnd='a3b2-sa1',
+  vslow=225.,
+  dfast=200.,
+  tfast=0.8,
+  lstart='2024-01-04T04',
+  ncmes=1,
+  ldates(1)='2024-01-04T18:29',
+  lat(1)=-23.,
+  lon(1)=90.,
+  rmajor(1)=32.,
+  rminor(1)=0.,
+  tilt(1)=0.,
+  vcld(1)=238.,
+  dcld(1)=4.,
+  tcld(1)=1.,
+  xcld(1)=1.,
+  radcav(1)=0.,
+  dcav(1)=1.,
+  tcav(1)=4.,
+  ncld=2,
+  lbndrot='synodic',
+/
