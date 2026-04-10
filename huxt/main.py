@@ -6,7 +6,6 @@ from datetime import datetime, timedelta
 from astropy.time import Time
 import re
 from sunpy.coordinates import sun
-import helio_coords as hcoords
 
 import joblib
 import onnxruntime as ort
