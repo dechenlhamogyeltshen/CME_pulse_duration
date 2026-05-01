@@ -74,7 +74,7 @@ def get_earth_lat(dt):
     return E_lat
     
 # --- Load data ----------------------------------------------------------------
-# Read in Blair's pairing on DONKI and CR2003
+# Read in Met Office Cone CME files
 project_dirs = H._setup_dirs_()
 crpath = os.path.join(project_dirs['input'],'(I)CMEs.csv')
 
@@ -332,20 +332,7 @@ def preprocess_omni(cme):
     vlon = np.interp(longs, omni_lon['lon_carr'], vcarr_rmin_back)
     
     # apply the CNN to the backmapped data
-    vcarr_rmin_back_cnn = correct_inner_vlon_cnn_onnx(vlon.reshape(-1, 1))    
-        
-    # Set up inner boundary conditions for HUXt from corotation of OMNI
-    # Create  vCarr array with the omni time series at 1 AU
-    #time1au, v1au, b1au = Hin.generate_vCarr_from_OMNI(run_start, run_stop, omni_input =obs,corot_type='both')
-
-    #now map each timestep back to the inner boundary
-    #vcarr_rmin = v1au.copy()
-    
-    #for i in range(0, len(time1au)):
-        #get the Earth heliocentric distance at this time
-        #Earth_R_km = earth_R(time1au[i]) *u.km
-        #Map from 215 rto 10.0 rS
-        #vcarr_rmin[:,i] = Hin.map_v_boundary_inwards(v1au[:,i]*u.km/u.s, Earth_R_km.to(u.solRad), rmin)
+    vcarr_rmin_back_cnn = correct_inner_vlon_cnn_onnx(vlon.reshape(-1, 1))
                                     
     return simtime, vcarr_rmin_back_cnn, icme_time
     
@@ -425,7 +412,7 @@ arrival_speed.append(['Velocity'] + list(crlist['CME_V']))
 transit_time.append(['Observed'] + list(crlist['tt_21']))
 arrival_speed.append(['Observed'] + list(crlist['V_max']))
 
-durations = np.arange(1.0, 22.2, 0.2)  # CME durations in hours
+durations = np.arange(1.0, 40.0, 1.0)  # CME durations in hours
 
 # Pre-initialize rows
 sph_tt_row = ['Spheroidal']

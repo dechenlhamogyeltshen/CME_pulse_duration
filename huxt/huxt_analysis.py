@@ -9,6 +9,7 @@ import astropy.units as u
 from astropy.time import Time
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+mpl.rcParams['animation.ffmpeg_path'] = "/opt/miniconda3/envs/huxt/bin/ffmpeg"
 from matplotlib.animation import FuncAnimation
 import numpy as np
 import pandas as pd

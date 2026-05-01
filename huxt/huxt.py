@@ -1825,6 +1825,7 @@ def add_cmes_to_input_series(vinput, model_time, lon, r_boundary, cme_params, la
                     if cme_expansion:
                         # use Owens2005 empirical relations
                         v_update_cme[n] = cme[4]*(1-dist_from_nose) + 200*dist_from_nose
+                        #v_update_cme[n] = cme[4]*(np.sin(dist_from_nose*np.pi))
                     else:
                         v_update_cme[n] = cme[4]
 
