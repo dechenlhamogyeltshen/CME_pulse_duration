@@ -255,7 +255,7 @@ def preprocess_omni(cme):
     
     # Compute the run start and end times so that the ICME is at the end of the window
 
-    simtime = 27.27 * u.day
+    simtime = 28.0 * u.day
     dl_starttime = icme_time - timedelta(days=28)
     dl_endtime = icme_time
     omni = Hin.get_omni(dl_starttime, dl_endtime)
@@ -412,7 +412,7 @@ arrival_speed.append(['Velocity'] + list(crlist['CME_V']))
 transit_time.append(['Observed'] + list(crlist['tt_21']))
 arrival_speed.append(['Observed'] + list(crlist['V_max']))
 
-durations = np.arange(1.0, 40.0, 1.0)  # CME durations in hours
+durations = np.arange(1.0, 30.5, 0.5)  # CME durations in hours
 
 # Pre-initialize rows
 sph_tt_row = ['Spheroidal']
