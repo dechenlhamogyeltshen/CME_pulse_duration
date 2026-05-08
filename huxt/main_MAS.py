@@ -129,7 +129,7 @@ def spheroidal(onecme,model):
     
     return tt, v_1au
     
-def fixed_duration(onecme,model,duration,rmin=rmin):
+def fixed_duration(onecme,model,duration):
     '''Solve HUXt using a fixed pulse duration cone CME'''
     
     cme = H.ConeCME(t_launch=0.0 * u.day,
