@@ -194,7 +194,7 @@ for _, onecme in crlist.iterrows():
     vr_in = Hin.get_MAS_long_profile(onecme['cr_num'], onecme['earth_lat'])
 
     #  Map the inner boundary MAS values inwards from 30 rS to 21.5 rS
-    vr_21 = Hin.map_v_boundary_inwards(vr_in, 30*u.solRad, r_min)
+    vr_21 = Hin.map_v_boundary_inwards(vr_in, 30*u.solRad, rmin)
 
     #  Now setup HUXt to run from 10Rs
     model = H.HUXt(v_boundary = vr_21,
@@ -203,8 +203,8 @@ for _, onecme in crlist.iterrows():
                         simtime=simtime,
                         latitude=0*u.deg,
                         dt_scale=dt_scale,
-                        r_min = r_min,
-                        r_max = r_max,
+                        r_min = rmin,
+                        r_max = rmax,
                         frame = 'synodic',
                         track_cmes = True,
                         lon_out = 0*u.rad)
