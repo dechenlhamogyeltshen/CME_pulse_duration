@@ -99,6 +99,13 @@ crlist['cr_lon_init'] = crlist['Time_21.5'].apply(lambda dt: Hin.datetime2huxtin
 crlist['earth_lat'] = crlist['Time_21.5'].apply(lambda dt: get_earth_lat(dt))
 
 #===============================================================================
+
+durations = np.arange(1.0, 30.5, 0.5)  # CME durations in hours
+rmin = 21.5*u.solRad
+rmax = 230*u.solRad #outer boundary for HUXt runs
+dt_scale = 4
+simtime = 28.0 * u.day
+
 # <codecell> Functions for spheroidal and fixed duration ConeCMEs
 def spheroidal(onecme,model):
     '''Solve HUXt using a spheroidal cone CME'''
@@ -173,12 +180,6 @@ transit_time.append(['Velocity'] + list(crlist['CME_V']))
 arrival_speed.append(['Velocity'] + list(crlist['CME_V']))
 transit_time.append(['Observed'] + list(crlist['tt_21']))
 arrival_speed.append(['Observed'] + list(crlist['V_max']))
-
-durations = np.arange(1.0, 30.5, 0.5)  # CME durations in hours
-rmin = 21.5*u.solRad
-rmax = 230*u.solRad #outer boundary for HUXt runs
-dt_scale = 4
-simtime = 28.0 * u.day
 
 # Pre-initialize rows
 sph_tt_row = ['Spheroidal']
