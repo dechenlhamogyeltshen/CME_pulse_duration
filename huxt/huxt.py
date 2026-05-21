@@ -385,6 +385,7 @@ class ConeCME:
                                  'length equal to the number of time steps')
 
         if is_scalar == 1:
+        #if is_scalar == 0:
             arrive_rad = np.ones(times.size) * radius
             arrive_lon = np.ones(times.size) * longitude
 

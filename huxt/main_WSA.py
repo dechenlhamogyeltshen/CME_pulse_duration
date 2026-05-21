@@ -197,10 +197,11 @@ for _, onecme in crlist.iterrows():
     
     wsafilepath = os.path.join(os.path.join("/data/WSA", "wsa_gong_{}.fits".format(date_str)))
     v_wsa = Hin.get_WSA_long_profile(wsafilepath, lat=0.0 * u.deg)
+    vr_in = Hin.map_v_boundary_inwards(v_wsa, 30*u.solRad, rmin)
     
     cr, cr_lon_init = Hin.datetime2huxtinputs(date)
     
-    model = H.HUXt(v_boundary=v_wsa, cr_num=cr, cr_lon_init = cr_lon_init,simtime = simtime, r_min=rmin, r_max=rmax, dt_scale=dt_scale, latitude=0*u.deg, frame = 'synodic', track_cmes = True, lon_out = 0*u.rad)
+    model = H.HUXt(v_boundary=vr_in, cr_num=cr, cr_lon_init = cr_lon_init,simtime = simtime, r_min=rmin, r_max=rmax, dt_scale=dt_scale, latitude=0*u.deg, frame = 'synodic', track_cmes = True, lon_out = 0*u.rad)
     
     #========================================================
     # Spheroidal cone cme
