@@ -255,9 +255,12 @@ def preprocess_omni(cme):
     
     # Compute the run start and end times so that the ICME is at the end of the window
 
-    simtime = 28.0 * u.day
-    dl_starttime = icme_time - timedelta(days=28)
-    dl_endtime = icme_time
+    #simtime = 28.0 * u.day
+    #dl_starttime = icme_time - timedelta(days=28)
+    dl_starttime = icme_time - timedelta(days=13.6)
+    #dl_endtime = icme_time
+    dl_endtime = icme_time + timedelta(days=13.6)
+    simtime = (dl_endtime-dl_starttime).days * u.day
     omni = Hin.get_omni(dl_starttime, dl_endtime)
         
     # Remove ICME from OMNI
@@ -341,7 +344,7 @@ def preprocess_omni(cme):
 def spheroidal(onecme,model):
     '''Solve HUXt using a spheroidal cone CME'''
     
-    cme = H.ConeCME(t_launch=0.0 * u.day,
+    cme = H.ConeCME(t_launch=13.6 * u.day,
                     longitude=onecme['lon'] * u.deg,
                     latitude=onecme['lat'] * u.deg,
                     initial_height=rmin,
@@ -370,7 +373,7 @@ def spheroidal(onecme,model):
 def fixed_duration(onecme,model,duration,rmin=rmin):
     '''Solve HUXt using a fixed pulse duration cone CME'''
     
-    cme = H.ConeCME(t_launch=0.0 * u.day,
+    cme = H.ConeCME(t_launch=13.6 * u.day,
                     longitude=onecme['lon'] * u.deg,
                     latitude=onecme['lat'] * u.deg,
                     initial_height=rmin,
