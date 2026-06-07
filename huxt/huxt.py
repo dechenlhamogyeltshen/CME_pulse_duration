@@ -1554,7 +1554,8 @@ def _setup_dirs_():
     dirs = {'ephemeris': os.path.join(cwd, 'data', 'ephemeris', 'ephemeris.hdf5'),
             'example_inputs': os.path.join(cwd, 'data', 'example_inputs'),
             'input': os.path.join(cwd, 'data', 'input'),
-            'output': os.path.join(cwd, 'data', 'output')}
+            'output': os.path.join(cwd, 'data', 'output'),
+            'figures': os.path.join(cwd, 'figures')}
 
     bc_dir = Path(user_data_dir(appname='huxt', appauthor=False), "data", 'boundary_conditions')
     bc_dir.mkdir(parents=True, exist_ok=True)
