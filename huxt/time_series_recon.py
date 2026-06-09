@@ -182,8 +182,8 @@ for _, onecme in crlist.iterrows():
     # Obtain OMNI boundary conditions at 21.5 rS
     start_time = onecme['Time_21.5']
 
-    dl_starttime = start_time - timedelta(days=13.6)
-    dl_endtime = start_time + timedelta(days=13.6)
+    dl_starttime = start_time - timedelta(days=50.0)
+    dl_endtime = start_time + timedelta(days=50.0)
 
     omni = Hin.get_omni(dl_starttime, dl_endtime)
 
@@ -222,11 +222,23 @@ for _, onecme in crlist.iterrows():
     model.solve([cme])
         
     # The Earth time series can be plotted, along with OMNI data (downloaded on demand),using:
-    fig, axs = plot_earth_timeseries(model, modelbg, plot_omni = True)
-    axs[0].axvline(onecme['Disturbance_Time'], color='r')
+    
+    #fig, axs = plot_earth_timeseries(model, modelbg, plot_omni = True)
+    #axs[0].axvline(onecme['Disturbance_Time'], color='r')
+    #data_dir = project_dirs['figures']
+    #out_path = os.path.join(data_dir, "time_series_recon")
+    #filename = f"{onecme['Disturbance_Time']}.pdf"
+    #filepath = os.path.join(out_path, filename)
+    #fig.savefig(filepath, bbox_inches='tight')
+    
+    # For time series at 0.1 AU:
+    r = 0.1*u.AU
+    fig, axs = HA.plot_timeseries(modelbg, r, lon=0.0)
     data_dir = project_dirs['figures']
-    out_path = os.path.join(data_dir, "time_series_recon")
-    filename = f"{onecme['Disturbance_Time']}a.pdf"
+    out_path = os.path.join(data_dir, "time_series_recon_near")
+    filename = f"{onecme['Disturbance_Time']}.pdf"
     filepath = os.path.join(out_path, filename)
     fig.savefig(filepath, bbox_inches='tight')
+    
+    # For animation:
     #HA.animate(model, tag=filename, outputfilepath=filepath)

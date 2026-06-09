@@ -205,8 +205,8 @@ for _, onecme in crlist.iterrows():
 
     start_time = onecme['Time_21.5']
 
-    dl_starttime = start_time - timedelta(days=13.6)
-    dl_endtime = start_time + timedelta(days=13.6)
+    dl_starttime = start_time - timedelta(days=50.0)
+    dl_endtime = start_time + timedelta(days=50.0)
 
     omni = Hin.get_omni(dl_starttime, dl_endtime)
 
